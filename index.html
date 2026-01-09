@@ -2,20 +2,49 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Détection d’objets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Détection d'objets COCO</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; padding: 20px; background:#f4f6fb; }
+    .row { display:flex; gap:8px; align-items:center; }
+    input[type="text"]{flex:1;padding:8px}
+    button{padding:8px 12px}
+    #loader{display:none;margin-top:12px}
+    #canvasContainer{display:none;margin-top:12px}
+    #errorMsg,#successMsg{display:none;padding:10px;margin-top:12px}
+    #errorMsg{background:#fee;color:#900}
+    #successMsg{background:#efe;color:#060}
+  </style>
 </head>
 <body>
 
-  <input id="urlInput" placeholder="URL de l'image" size="50" />
-  <button onclick="detect()">Détecter</button>
+  <h2>Analyse d'image (COCO-SSD)</h2>
 
-  <br><br>
+  <div class="row">
+    <input id="urlInput" type="text" placeholder="URL de l'image (https://...)" />
+    <button id="detectBtn" onclick="detect()">Détecter</button>
+  </div>
 
-  <!-- Image source (peut être cachée) -->
+  <div style="margin-top:10px">
+    <label>Sensibilité: <span id="confidenceDisplay">50%</span></label>
+    <input id="confidenceSlider" type="range" min="10" max="99" value="50" oninput="updateConfidenceDisplay()" />
+  </div>
+
+  <div id="loader">Chargement / Analyse en cours...</div>
+  <div id="errorMsg"></div>
+  <div id="successMsg"></div>
+
+  <div id="canvasContainer">
+    <canvas id="canvas"></canvas>
+    <div style="margin-top:8px">
+      <strong>Objets détectés:</strong> <span id="objectCount">0</span>
+      &nbsp;&nbsp; <strong>Confiance moyenne:</strong> <span id="avgConfidence">0%</span>
+    </div>
+  </div>
+
+  <!-- Image source (cachée) -->
   <img id="image" crossorigin="anonymous" style="display:none" />
-
-  <!-- Canvas de rendu -->
-  <canvas id="canvas"></canvas>
 
   <!-- TensorFlow.js -->
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
