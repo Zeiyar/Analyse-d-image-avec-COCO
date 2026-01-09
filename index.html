@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Détection d’objets</title>
+</head>
+<body>
+
+  <input id="urlInput" placeholder="URL de l'image" size="50" />
+  <button onclick="detect()">Détecter</button>
+
+  <br><br>
+
+  <img id="image" crossorigin="anonymous" width="400" />
+
+  <pre id="result"></pre>
+
+  <!-- TensorFlow.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <!-- COCO-SSD -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+  <!-- Image source (peut être cachée) -->
+  <img id="image" crossorigin="anonymous" style="display:none" />
