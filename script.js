@@ -10,6 +10,7 @@ async function detect(){
     const img = document.getElementById('image');
     const url = document.getElementById('urlInput').value;
 
+    console.log("Detecting objects in image from URL:", url);
     img.src = url;
 
     img.onload = async () => {

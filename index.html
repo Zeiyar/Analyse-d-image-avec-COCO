@@ -11,9 +11,11 @@
 
   <br><br>
 
-  <img id="image" crossorigin="anonymous" width="400" />
+  <!-- Image source (peut être cachée) -->
+  <img id="image" crossorigin="anonymous" style="display:none" />
 
-  <pre id="result"></pre>
+  <!-- Canvas de rendu -->
+  <canvas id="canvas"></canvas>
 
   <!-- TensorFlow.js -->
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
@@ -23,6 +25,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
-  <!-- Image source (peut être cachée) -->
-  <img id="image" crossorigin="anonymous" style="display:none" />
