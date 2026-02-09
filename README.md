@@ -1,4 +1,6 @@
-# 🖼️ Analyse d’image avec COCO
+"Le projet sera réutiliser dans le projet https://github.com/Zeiyar/Detection_Video ou on détecte des objets avec le modèle YOLO qui utilise la base de donnée COCO sur une vidéo afin de détecter plusieurs annomalie n'hésiter pas à aller voir !"
+
+#  🖼️ Analyse d’image avec COCO
 
 **Analyse-d-image-avec-COCO** est un projet d’analyse d’images utilisant un modèle entraîné avec **TensorFlow** et le **COCO dataset** (Common Objects in Context) pour détecter et repérer automatiquement des objets dans une image à partir d’une URL fournie.
 
